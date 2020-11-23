@@ -27,6 +27,18 @@ namespace LovelyBackend
         public void ConfigureServices(IServiceCollection services)
         {
 
+            services.AddCors(options =>
+            {
+                options.AddDefaultPolicy(
+                    builder =>
+                    {
+                        builder.AllowAnyOrigin();
+                        builder.AllowAnyHeader();
+                        builder.AllowAnyMethod();
+                    });
+            });
+
+
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
@@ -47,6 +59,8 @@ namespace LovelyBackend
             app.UseHttpsRedirection();
 
             app.UseRouting();
+
+            app.UseCors();
 
             app.UseAuthorization();
 
