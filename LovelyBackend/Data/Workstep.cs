@@ -4,7 +4,7 @@ namespace LovelyBackend.Data
 {
     public class Workstep
     {
-        public Guid WorkstepId { get; set; }
+        public Guid WorkstepId { get; set; } = Guid.NewGuid();
         public int PhysicallId { get; set; }
         public int Station { get; set; }
         public int Duration { get; set; }
